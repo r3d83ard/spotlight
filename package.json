@@ -38,6 +38,13 @@
         "scopeName": "source.gcode",
         "path": "./syntaxes/gcode.tmLanguage.json"
       }
+    ],
+    "themes": [
+      {
+        "label": "G Code Tokyo Night Pro",
+        "uiTheme": "vs-dark",
+        "path": "./themes/G Code Tokyo Night Pro-color-theme.json"
+      }
     ]
   }
 }

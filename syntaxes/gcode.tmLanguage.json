@@ -56,19 +56,31 @@
           "match": ";.*$"
         },
         {
-          "name": "comment.block.parentheses.gcode",
-          "begin": "\\(",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.comment.begin.gcode"
-            }
-          },
-          "end": "\\)",
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.comment.end.gcode"
-            }
-          }
+          "name": "invalid.illegal.unclosed-comment.gcode",
+          "match": "(?<balanced>\\((?:[^()]++|\\g<balanced>)*\\))(?!)|(?<unclosed>\\((?:[^()]++|\\g<balanced>)*$)"
+        },
+        {
+          "include": "#parenthesesComment"
+        }
+      ]
+    },
+    "parenthesesComment": {
+      "name": "comment.block.parentheses.gcode",
+      "begin": "\\(",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.begin.gcode"
+        }
+      },
+      "end": "\\)",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.end.gcode"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#parenthesesComment"
         }
       ]
     },

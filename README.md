@@ -48,6 +48,14 @@ code --install-extension g-code-macro-b-0.0.1.vsix
 
 3. Reload VS Code.
 
+## Guaranteed Distinct G/M/N Colors
+
+To force distinct colors for G codes, M codes, N sequence numbers, and control flow keywords, select the bundled theme:
+
+1. Open Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
+2. Run `Preferences: Color Theme`
+3. Choose `G Code Tokyo Night Pro`
+
 ## Force all `.nc` files to `G Code` (if another extension conflicts)
 
 Add this to your VS Code `settings.json`:
@@ -60,6 +68,19 @@ Add this to your VS Code `settings.json`:
 }
 ```
 
-## Tokyo Night Storm
+## Troubleshooting
 
-The grammar uses standard TextMate scopes (`keyword.control`, `entity.name.function`, `variable.other`, `comment`, `punctuation.section`) so Tokyo Night Storm should render each requested token group with distinct colors.
+- If a `.nc` file opens as another language (for example `NCCode`), click the language mode in the bottom-right status bar and switch it to `G Code`.
+- Keep this in `settings.json` to make it stick:
+
+```json
+{
+  "files.associations": {
+    "*.nc": "gcode"
+  }
+}
+```
+
+## Theme Notes
+
+The grammar uses explicit G Code scopes, and the bundled `G Code Tokyo Night Pro` theme adds dedicated color rules so G, M, and N tokens are always distinct.
